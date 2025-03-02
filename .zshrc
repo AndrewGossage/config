@@ -24,7 +24,7 @@ git_info() {
     if [[ -n $(git status -s  2> /dev/null) ]]; then
 	    echo  "%F{yellow}% ✱ %F{reset}"
 	else
-	    echo "%F{green}%"
+	    echo "%F{green}% ✱ %F{reset}"
 
     fi
 
