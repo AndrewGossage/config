@@ -10,9 +10,9 @@ autoload -U colors && colors
 # Git branch info    
 last_command() {
     if [[ $? -eq 0 ]]; then
-     echo -n "%F{green}% ✓"
+     echo -n "%F{green}%"
     else
-     echo -n "%F{red}% ✗"
+     echo -n "%F{red}%"
    fi
 
 }
@@ -21,7 +21,7 @@ git_info() {
     if [[ -n $(git status -s  2> /dev/null) ]]; then
 	    echo -n "%F{yellow}% ✱ "
 	else
-	    echo -n "%F{green}% "
+	    echo -n "%F{green}%"
 
     fi
 
