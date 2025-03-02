@@ -22,9 +22,9 @@ last_command() {
 git_info() {
    
     if [[ -n $(git status -s  2> /dev/null) ]]; then
-	    echo  "%F{yellow}% ✱ %F{reset}"
+	    echo  "%F{yellow}% $(git status -s  2> /dev/null | wc -l) %F{reset}"
 	else
-	    echo "%F{green}% ✱ %F{reset}"
+	    echo "%F{blue}% ✱ %F{reset}"
 
     fi
 
@@ -49,7 +49,7 @@ last_command2() {
 
 # Precmd is executed just before each prompt
 precmd() {
-    PS1="$(last_command) $(git_info) $(last_command2)%F{blue}%~ %F{magenta}❯ %F{reset}"
+    PS1="$(last_command) $(git_info) $(last_command2)%F{blue}%~ %F{magenta} ❯ %F{reset}"
 }
 
 
