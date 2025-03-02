@@ -10,31 +10,37 @@ autoload -U colors && colors
 # Git branch info    
 last_command() {
     if [[ $? -eq 0 ]]; then
-     echo -n "%F{green}%"
+     echo  -n "%F{green}%"
     else
-     echo -n "%F{red}%"
+     echo  -n " %F{red}% !   "
    fi
 
 }
 git_info() {
    
     if [[ -n $(git status -s  2> /dev/null) ]]; then
-	    echo -n "%F{yellow}% ✱ "
+	    echo  -n "%F{yellow}% ✱ "
 	else
-	    echo -n "%F{green}%"
+	    echo  -n "%F{green}%"
 
     fi
 
 
 
-    echo -n "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+    echo  "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
     
     
 }
 
+t() {
+	echo ""
+	echo "$(date +"%H:%M")"
+
+}
+
 # Precmd is executed just before each prompt
 precmd() {
-    PS1="$(last_command) $(date +"%H:%M") $(git_info) %F{blue}%~ %F{magenta}❯ %F{reset}"
+	PS1="$(t) $(last_command) $(git_info) %F{blue}%~ %F{magenta}❯ %F{reset}"
 }
 
 
