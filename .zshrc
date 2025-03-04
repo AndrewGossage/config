@@ -82,6 +82,8 @@ bindkey "^[[4~" end-of-line
 bindkey '^R' history-incremental-search-backward  # Ctrl+R to search backwards
 bindkey '^S' history-incremental-search-forward    # Ctrl+S to search forwards
 
+export EDITOR=nvim
+export VISUAL=nvim
 export TERM=xterm
 
 # Generated for envman. Do not edit.
